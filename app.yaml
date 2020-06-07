@@ -1,0 +1,11 @@
+runtime: java11
+service: backend
+
+# Force https
+handlers:
+  - url: .*
+    script: auto
+    secure: always
+  
+# The entry point is necessary to tell Vert.x where to store cached resources extracted from fat jars
+entrypoint: 'java -Xms128m -Xmx128m -Dvertx.cacheDirBase=/tmp -jar backend.jar'

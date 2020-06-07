@@ -1,0 +1,7 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['clean', 'package']
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', 'target/build/app.yaml']
